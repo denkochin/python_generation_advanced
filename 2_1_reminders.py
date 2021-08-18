@@ -77,6 +77,30 @@ def imt(weight, height):
     else:
         return 'Избыточная масса'
 
-a, b = float(input()), float(input())
-print(imt(a, b))
+# a, b = float(input()), float(input())
+# print(imt(a, b))
+
+def string_price(string):
+    '''
+    2.1.4 Стоимость строки
+        ана строка текста. Напишите программу для подсчета стоимости строки, исходя из того, что один любой символ (в том числе пробел) стоит 6060 копеек. Ответ дайте в рублях и копейках в соответствии с примерами.
+        Формат входных данных
+        На вход программе подается строка текста.
+        Формат выходных данных
+        Программа должна вывести стоимость строки.
+        Тестовые данные
+        Sample Input 1:
+        Привет, как дела?!
+        Sample Output 1:
+        10 р. 80 коп.
+    '''
+    
+    symbol_price = 60
+    total_price = len(string) * symbol_price
+    rub = str(total_price // 100) + ' р. '
+    kop = str(total_price % 100) + ' коп.'
+    result = rub + kop
+    return result
+
+print(string_price(input()))
 
