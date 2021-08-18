@@ -102,5 +102,5 @@ def string_price(string):
     result = rub + kop
     return result
 
-print(string_price(input()))
+# print(string_price(input()))
 
