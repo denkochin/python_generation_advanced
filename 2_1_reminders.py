@@ -21,11 +21,9 @@ def easy(a, b):
 
         Тестовые данные
             Sample Input 1:
-
             3
             8
             Sample Output 1:
-
             11
             -5
             24
@@ -33,32 +31,6 @@ def easy(a, b):
             0
             3
             32768.90100384814
-            Sample Input 2:
-
-            123
-            2
-            Sample Output 2:
-
-            125
-            121
-            246
-            61.5
-            61
-            1
-            28153056843.0
-            Sample Input 3:
-
-            454
-            322
-            Sample Output 3:
-
-            776
-            132
-            146188
-            1.4099378881987579
-            1
-            132
-            19595820067580.043
     '''
 
     total = a + b
