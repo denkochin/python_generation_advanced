@@ -181,3 +181,4 @@ def zodiac(year):
     return signs[int(year) % 12]
 
 # print(zodiac('1988'))
+
