@@ -381,3 +381,39 @@ def coord_quadrants(n):
     print('Третья четверть: ', three)
     print('Четвертая четверть: ', four)
 
+def count_bigger(string_of_numbers):
+    '''
+    2.2.2 Больше предыдущего
+        На вход программе подается строка текста из натуральных чисел. Из неё формируется список чисел. Напишите программу подсчета количества чисел, которые больше предшествующего им в этом списке числа, то есть, стоят вслед за меньшим числом. 
+
+        Формат входных данных
+        На вход программе подается строка текста из разделенных пробелами натуральных чисел.
+
+        Формат выходных данных
+        Программа должна вывести одно число – количество элементов списка, больших предыдущего.
+
+        Sample Input 1:
+        1 2 3 4 5
+        Sample Output 1:
+        4
+        Sample Input 2:
+        1 1 3 2 2 1 1 1 1
+        Sample Output 2:
+        1
+        Sample Input 3:
+        5 4 3 2 1
+        Sample Output 3:
+        0
+    '''
+    list_of_numbers = [int(i) for i in string_of_numbers.split()]
+    count = 0
+    for i in range(len(list_of_numbers)):
+        if i == 0:
+            continue
+        if list_of_numbers[i] > list_of_numbers[i - 1]:
+            count += 1
+    return count
+
+# s = '1 2 3 4 5'
+# print(count_bigger(s))
+
