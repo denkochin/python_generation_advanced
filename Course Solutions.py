@@ -521,3 +521,63 @@ def unique_elems(s):
 # s = '1 1 1 2 2 2 2 3 3 3'
 # unique_elems(s)
 
+def check_multiplication():
+    '''
+    2.2.6 Произведение чисел
+        Напишите программу для определения, является ли число произведением двух чисел из данного набора, выводящую результат в виде ответа «ДА» или «НЕТ».
+        Формат входных данных
+        В первой строке подаётся число n\, (0 < n < 1000)n(0<n<1000) – количество чисел в наборе. В последующих nn строках вводятся целые числа, составляющие набор (могут повторяться). Затем следует целое число, которое является или не является произведением двух каких-то чисел из набора.
+        Формат выходных данных
+        Программа должна вывести «ДА» или «НЕТ» в соответствии с условием задачи.
+        Примечание 1. Само на себя число из набора умножиться не может, другими словами, два множителя должны иметь разные индексы в наборе.
+        Примечание 2. Для решения задачи используйте вложенные циклы.
+        Sample Input 1:
+        3
+        33
+        17
+        35
+        999
+        Sample Output 1:
+        НЕТ
+        Sample Input 2:
+        4
+        89
+        4
+        77
+        4
+        16
+        Sample Output 2:
+        ДА
+        Sample Input 3:
+        5
+        1
+        999
+        87
+        33
+        325
+        999
+        Sample Output 3:
+        ДА
+    '''
+    n = int(input())
+    numbers_list = [int(input()) for _ in range(int(n))]
+    product = int(input())
+    print(n)
+    print(numbers_list)
+    print(product)
+
+    count_matching_deviders = 0
+    for i in range(len(numbers_list)):
+        for j in range(len(numbers_list)):
+            if i == j:
+                continue
+            if numbers_list[i] * numbers_list[j] == product:
+                count_matching_deviders += 1
+    print(count_matching_deviders)
+    return 'ДА' if count_matching_deviders > 1 else 'НЕТ'
+
+# print(check_multiplication())
+
+
+
+    
