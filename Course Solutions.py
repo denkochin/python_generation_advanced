@@ -451,3 +451,34 @@ def change_places(string_of_numbers):
 # s = '1 2 3 4 5'
 # print(change_places(s))
 
+def evolution_shift(s):
+    '''
+    2.2.4 Сдвиг в развитии
+        Формат входных данных
+        На вход программе подается строка текста из разделенных пробелами натуральных чисел.
+        Формат выходных данных
+        Программа должна вывести элементы измененного списка с циклическим сдвигом, разделяя его элементы одним пробелом.
+        Sample Input 1:
+        1 2 3 4 5
+        Sample Output 1:
+        5 1 2 3 4
+        Sample Input 2:
+        6 6 6 6 6 6 6
+        Sample Output 2:
+        6 6 6 6 6 6 6
+        Sample Input 3:
+        5 4 3 2 1
+        Sample Output 3:
+        1 5 4 3 2
+        Sample Input 4:
+        489 483 43 2 3 84 1 4 3 2 5 4 3 13
+        Sample Output 4:
+        13 489 483 43 2 3 84 1 4 3 2 5 4 3
+    '''
+    l = s.split()
+    l.insert(0, l[-1])
+    l.pop()
+    print(*l)
+    
+s = '1 2 3 4 5'
+evolution_shift(s)
