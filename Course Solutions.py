@@ -794,4 +794,5 @@ def roskomnadzor(word):
             word = word.replace(b[i], '')
             word = ' '.join(word.split())
 
-roskomnadzor('роскомнадзор')
+# roskomnadzor('роскомнадзор')
+
