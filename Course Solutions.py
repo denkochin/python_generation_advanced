@@ -263,7 +263,7 @@ def add_sac_commas(number_str):
 
 def flavius_josephus(n, k):
     '''
-    НЕ РЕШЕНА 2.1.10 Задача Иосифа Флавия
+    разобраться в решении 2.1.10 Задача Иосифа Флавия
         n человек, пронумерованных числами от 1 до n, стоят в кругу. Они начинают считаться, каждый k-й по счету человек выбывает из круга, после чего счет продолжается со следующего за ним человека. Напишите программу, определяющую номер человека, который останется в кругу последним.
 
         Формат входных данных
@@ -292,28 +292,14 @@ def flavius_josephus(n, k):
         5
         Sample Output 3:
         6
-    '''
-    list_of_people = [i for i in range(1, n + 1)]
-    print(list_of_people)
+       '''
+    res = 0
+    for i in range(1, n+1):
+        res = (res + k) % i
+    
+    return res + 1
 
-    while len(list_of_people) > 1:
-        for i in range(len(list_of_people)):
-            del list_of_people[(i + (k) - 1) % (len(list_of_people))]
-            print(list_of_people)
-
-    # for i in range(1, n + 1):
-    #     if list_of_people[i - 1] != 0:
-    #         print(i % n)
-    #         list_of_people[i % n] = 0
-
-
-    for i in range(1, n):
-        print((i) % n)
-        if list_of_people[(k * i) % n] != 0:
-            list_of_people[(k * i) % n] = 0
-            print(list_of_people)
-
-# print(flavius_josephus(41, 2))
+print(flavius_josephus(41, 2))
 
 def coord_quadrants(n):
     '''
