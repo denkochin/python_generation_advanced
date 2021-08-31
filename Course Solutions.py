@@ -957,3 +957,45 @@ def pascal_triangle_2(n):
 
 # for i in pascal_triangle_2(5):
 #     print(*i)
+
+def pack_duplicates(s):
+    '''
+    4.3.12 Упаковка дубликатов
+        На вход программе подается строка текста, содержащая символы. Напишите программу, которая упаковывает последовательности одинаковых символов заданной строки в подсписки.
+
+        Формат входных данных
+        На вход программе подается строка текста, содержащая символы, отделенные символом пробела.
+
+        Формат выходных данных
+        Программа должна вывести указанный вложенный список.
+
+        Sample Input 1:
+        a b c d
+        Sample Output 1:
+        [['a'], ['b'], ['c'], ['d']]
+        Sample Input 2:
+        w w w o r l d g g g g r e a t t e c c h e m g g p w w
+        Sample Output 2:
+        [['w', 'w', 'w'], ['o'], ['r'], ['l'], ['d'], ['g', 'g', 'g', 'g'], ['r'], ['e'], ['a'], ['t', 't'], ['e'], ['c', 'c'], ['h'], ['e'], ['m'], ['g', 'g'], ['p'], ['w', 'w']]
+        Sample Input 3:
+        g i v e t h h i i s m a a a n a g u u n
+        Sample Output 3:
+        [['g'], ['i'], ['v'], ['e'], ['t'], ['h', 'h'], ['i', 'i'], ['s'], ['m'], ['a', 'a', 'a'], ['n'], ['a'], ['g'], ['u', 'u'], ['n']]
+    '''
+    l = s.split()
+    lt = []
+    lr = []
+    for i in range(len(l)):
+        if i == 0:
+            lt.append(l[i])
+        elif l[i] == l[i - 1]:
+            lt.append(l[i])
+        elif l[i] != l[i - 1]:
+            lr.append(lt)
+            lt = []
+            lt.append(l[i])
+    lr.append(lt)
+    return lr
+
+s = 'a b c d'
+print(pack_duplicates(s))
