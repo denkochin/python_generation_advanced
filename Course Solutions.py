@@ -2566,3 +2566,173 @@ def snake_filling(p):
 
 # snake_filling('5 5')
 
+def diagonal_filling(p):
+    '''
+    4.6.9 Заполнение диагоналями
+        На вход программе подаются два натуральных числа nn и mm. Напишите программу, которая создает матрицу размером n \times mn×m заполнив её "диагоналями" в соответствии с образцом.
+
+        Формат входных данных
+        На вход программе на одной строке подаются два натуральных числа nn и mm — количество строк и столбцов в матрице.
+
+        Формат выходных данных
+        Программа должна вывести указанную матрицу в соответствии с образцом.
+
+        Примечание. Для вывода элементов матрицы как в примерах, отводите ровно 33 символа на каждый элемент. Для этого используйте строковый метод ljust(). Можно обойтись и без ljust(), система примет и такое решение
+
+        Тестовые данные
+        Sample Input 1:
+
+        3 5
+        Sample Output 1:
+
+        1  2  4  7  10
+        3  5  8  11 13
+        6  9  12 14 15
+        Sample Input 2:
+
+        3 4
+        Sample Output 2:
+
+        1  2  4  7
+        3  5  8  10
+        6  9  11 12
+        Sample Input 3:
+
+        2 2
+        Sample Output 3:
+
+        1  2
+        3  4
+        Sample Input 4:
+
+        8 1
+        Sample Output 4:
+
+        1
+        2
+        3
+        4
+        5
+        6
+        7
+        8
+        Sample Input 5:
+
+        8 2
+        Sample Output 5:
+
+        1  2
+        3  4
+        5  6
+        7  8
+        9  10
+        11 12
+        13 14
+        15 16
+    '''
+    n = int(p.split()[0])
+    m = int(p.split()[1])
+    matrix = [[0 for j in range(m)] for i in range(n)]
+    print(*matrix, sep='\n')
+    print()
+    
+    # Решение из комментариев
+    # =======================
+    a, b = 0, 1   #начальная сумма индексов/первое число
+    while a != m + n - 1:
+        for i, j in ([i, j] for i in range(n) for j in range(m) if i + j == a):
+            matrix[i][j] = b
+            b += 1
+        a += 1
+    [print(*i) for i in matrix]
+    # =======================
+
+
+    # count = 1
+    # index_sum = 0
+    # for r in range(n):
+    #     for c in range(m):
+    #         if r + c == index_sum:
+    #             matrix[r][c] = count
+    #             count += 1
+    #     index_sum += 1
+       
+
+    # for r in range(len(matrix)):
+    #     for c in range(len(matrix[r])):
+    #         matrix[r][c] = r + c
+
+    print(*matrix, sep='\n')
+    print()
+
+    for r in range(len(matrix)):
+        for c in range(len(matrix[r])):
+            print(str(matrix[r][c]).ljust(3), end='')
+        print()
+
+# diagonal_filling('3 5')
+
+def spiral_hell(p):
+    '''
+    Не решена!!!
+    4.6.10 Заполнение спиралью
+        На вход программе подаются два натуральных числа nn и mm. Напишите программу, которая создает матрицу размером n \times mn×m заполнив её "спиралью" в соответствии с образцом.
+
+        Формат входных данных
+        На вход программе на одной строке подаются два натуральных числа nn и mm — количество строк и столбцов в матрице.
+
+        Формат выходных данных
+        Программа должна вывести матрицу в соответствии образцом.
+
+        Примечание. Для вывода элементов матрицы как в примерах, отводите ровно 33 символа на каждый элемент. Для этого используйте строковый метод ljust(). Можно обойтись и без ljust(), система примет и такое решение
+
+        Тестовые данные 
+        Sample Input 1:
+
+        4 5
+        Sample Output 1:
+
+        1  2  3  4  5
+        14 15 16 17 6
+        13 20 19 18 7
+        12 11 10 9  8
+        Sample Input 2:
+
+        1 6
+        Sample Output 2:
+
+        1  2  3  4  5  6
+        Sample Input 3:
+
+        3 3
+        Sample Output 3:
+
+        1  2  3
+        8  9  4
+        7  6  5
+    '''
+
+    a, b = map(int, p.split())
+    circus = [[0 for i in range(b)] for _ in range(a)]
+    i, j, n = 0, 0, 1
+    directions = [True, False, False, False] 
+    m = 0
+    while n <= a * b:
+        if circus[i][j] == 0:
+            circus[i][j] = (str(n)).ljust(4)
+            n += 1 
+        elif j < b - 1 and circus[i][j+1] == 0 and directions[0]:
+            j += 1
+        elif i < a - 1 and circus[i+1][j] == 0 and directions[1]:
+            i += 1
+        elif j >= 0 and circus[i][j-1] == 0 and directions[2]:
+            j -= 1
+        elif i >= 0 and circus[i-1][j] == 0 and directions[3]:
+            i -= 1
+        elif directions[0] or directions[1] or directions[2] or directions[3]:
+            m = directions.index(True)
+            directions[m], directions[(m + 1) % 4] = directions[(m + 1) % 4], directions[m] 
+    [print(*x) for x in circus]
+
+# spiral_hell('5 5')
+
